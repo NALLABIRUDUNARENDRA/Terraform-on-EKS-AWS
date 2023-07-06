@@ -10,5 +10,5 @@ variable "instance_type" {
 
 variable "key_name" {
   type = string
-  default = "terraform2023"
+  default = "Terraform On EKS-AWS "
 }
