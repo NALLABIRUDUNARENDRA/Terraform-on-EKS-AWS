@@ -2,7 +2,7 @@ output "for_output_list" {
   value = ["aws_instance.myec2: instance.public_dns"]
 }
 
-output "for_output_map" {
+output "for_output_map1" {
   value = "{aws_instance.myec2: instance.id => instance.public_dns}"
 }
 
