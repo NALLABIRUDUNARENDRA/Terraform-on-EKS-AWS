@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "instance_type" {
   type = string
-  default = "t2.nano"
+  default = "t3.micro"
 }
 
 variable "key_name" {
@@ -15,14 +15,14 @@ variable "key_name" {
 
 variable "instance_type_list" {
   type = list(string)
-  default = ["t2.nano","t2.small","t2.large"]
+  default = ["t3.nano","t3.small","t3.large"]
 }
 
 variable "instance_type_map" {
   type = map(string)
   default = {
-    "dev" = "t2.nano"
-    "qa" = "t2.small"
-    "prod" = "t2.large"
+    "dev" = "t3.nano"
+    "qa" = "t3.small"
+    "prod" = "t3.large"
   }
 }

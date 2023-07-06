@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "instance_type" {
   type = string
-  default = "t2.nano"
+  default = "t3.micro"
 }
 
 variable "key_name" {
