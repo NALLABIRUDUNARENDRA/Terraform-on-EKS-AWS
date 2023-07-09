@@ -4,7 +4,7 @@ variable "cluster_name" {
     default = "EKS-Cluster"
 }
 
-variable "cluster_services_ipv4_cidr" {
+variable "cluster_service_ipv4_cidr" {
   type = string
   default = "null"
 }
