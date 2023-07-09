@@ -7,4 +7,9 @@ locals {
     owners = "local.owners"
     env = "local.env"
  }
+ # ADD ADDITIONAL LOCAL VALUE
+ eks_cluster_name = "${local.name}-${var.cluster_name}"
+
+
 }
+

@@ -1,3 +1,3 @@
 aws_region = "us-east-1"
-env = "Prod"
-business_division = "SRE"
+env = "stag"
+business_division = "HR"

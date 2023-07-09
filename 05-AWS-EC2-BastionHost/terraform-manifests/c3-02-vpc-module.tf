@@ -1,5 +1,5 @@
 # AWS Availability Zones DataSource
-data "aws_availability_zone" "avabilable" {
+data "aws_availability_zones" "available" {
 #   state = "avabilable"
 }
 
@@ -12,8 +12,8 @@ module "vpc" {
   name = "${local.name}-${var.vpc_name}"
   cidr = var.vpc_cidr_block
  #   azs = var.vpc_azs
-  availability_zones = "${aws_availability_zone.avabilable.names}"
-  public_subnets =  var.vpc_public_subnets
+  azs             = data.aws_availability_zones.available.names
+  public_subnets  =  var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets
 
  # Database Subnets
@@ -28,13 +28,17 @@ module "vpc" {
  # VPC DNS Parameters
  enable_dns_hostnames = true
  enable_dns_support = true
-
+ # ADDITIONAL TAGS TO SUBNETS
  public_subnet_tags = {
     Name = "Public-Subnets"
+    "kubernetes.io/role/elb" =1
+    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
  }
 
  private_subnet_tags = {
     Name = "Private-Subnets"
+    "kubernetes.io/role/elb" =1
+    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
  }
 
  database_subnet_tags = {

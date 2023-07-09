@@ -14,5 +14,5 @@ variable "env" {
 # Business Division
 variable "business_division" {
   type = string
-  default = "HR"
+  default = "SRE"
 }
