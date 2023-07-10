@@ -2,16 +2,14 @@
 resource "aws_iam_role" "eks_master_role" {
   name = "${local.name}-eks-master-role"
 
-  assume_role_policy = <<POLICY
-
-  {
+   assume_role_policy = <<POLICY
+{
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "ec2.amazonaws.com"
-        
+        "Service": "eks.amazonaws.com"
       },
       "Action": "sts:AssumeRole"
     }
