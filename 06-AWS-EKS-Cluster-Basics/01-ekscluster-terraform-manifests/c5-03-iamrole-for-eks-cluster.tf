@@ -11,7 +11,7 @@ resource "aws_iam_role" "eks_master_role" {
       "Effect": "Allow",
       "Principal": {
         "Service": "ec2.amazonaws.com"
-        .com"
+        
       },
       "Action": "sts:AssumeRole"
     }
