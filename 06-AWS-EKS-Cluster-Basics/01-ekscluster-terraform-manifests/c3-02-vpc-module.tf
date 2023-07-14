@@ -15,6 +15,7 @@ module "vpc" {
   azs             = data.aws_availability_zones.available.names
   public_subnets  =  var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets
+  map_public_ip_on_launch = true           # Enable public IP assignment
 
  # Database Subnets
   create_database_subnet_group = var.vpc_create_database_subnet_group
@@ -28,16 +29,17 @@ module "vpc" {
  # VPC DNS Parameters
  enable_dns_hostnames = true
  enable_dns_support = true
+ 
  # ADDITIONAL TAGS TO SUBNETS
  public_subnet_tags = {
     Name = "Public-Subnets"
-    "kubernetes.io/role/elb" =1
+    "kubernetes.io/role/elb" = 1
     "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
  }
 
  private_subnet_tags = {
     Name = "Private-Subnets"
-    "kubernetes.io/role/elb" =1
+    "kubernetes.io/role/elb" = 1
     "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
  }
 

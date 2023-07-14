@@ -2,7 +2,7 @@
 resource "aws_iam_role" "eks_nodegroup_role" {
   name = "${local.name}-eks-nodegroup-role"
 
-   assume_role_policy = jsonencode({
+    assume_role_policy = jsonencode({
     Statement = [{
       Action = "sts:AssumeRole"
       Effect = "Allow"

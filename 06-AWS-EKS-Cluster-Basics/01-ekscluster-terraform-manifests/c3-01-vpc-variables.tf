@@ -19,13 +19,13 @@ variable "vpc_cidr_block" {
 # VPC Public subnets
 variable "vpc_public_subnets" {
   type = list(string)
-  default = ["10.60.1.0/24","10.60.2.0/24"]
+  default = ["10.60.101.0/24","10.60.102.0/24"]
 }
 
 # VPC Private subnets
 variable "vpc_private_subnets" {
   type = list(string)
-  default = ["10.60.10.0/24","10.60.20.0/24"]
+  default = ["10.60.1.0/24","10.60.2.0/24"]
 }
 
 

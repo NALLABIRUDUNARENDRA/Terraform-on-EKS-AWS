@@ -1,0 +1,14 @@
+apiVersion: V1 
+kind: Service
+metadata:
+  name: myapp1-service
+spec:
+  type: LoadBalancer # Cluster, # NodePort
+  selector:
+     app: myapp1
+  ports:
+    - name: http
+      port: 80 # Service Port
+      targetPort: 80
+# This will create a Classic Load Balancer
+# AWS will be retiring the EC2-Classic network on July 14, 2023

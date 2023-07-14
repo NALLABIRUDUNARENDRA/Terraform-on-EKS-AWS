@@ -1,10 +1,12 @@
 # Create AWS EKS NODE GROUP - PUBLIC
 resource "aws_eks_node_group" "eks_nodegroup_public" {
   cluster_name    = aws_eks_cluster.eks_cluster.name
+
   node_group_name = "${local.name}-eks-nodegroup-public"
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
   subnet_ids      = module.vpc.public_subnets
    #version = var.cluster_version #(OPTIONAL: DEFAULT TO EKS CLUSTER KUBERNETES VERSION)
+   
   ami_type = "AL2_x86_64"
   capacity_type = "ON_DEMAND"
   disk_size = 20
